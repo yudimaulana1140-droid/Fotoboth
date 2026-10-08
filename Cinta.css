@@ -1,0 +1,111 @@
+:root {
+    --bg-gradient: linear-gradient(135deg, #fff0f3 0%, #ffccd5 50%, #ffb3c6 100%);
+}
+
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background: var(--bg-gradient);
+    min-height: 100vh;
+    overflow-x: hidden;
+    color: #4a2e35;
+}
+
+.font-handwriting {
+    font-family: 'Caveat', cursive;
+}
+
+.font-romantic {
+    font-family: 'Sacramento', cursive;
+}
+
+/* Floating Hearts & Sakura Particles */
+.particle {
+    position: fixed;
+    top: -10vh;
+    pointer-events: none;
+    z-index: 0;
+    animation: floatDown linear infinite;
+}
+
+@keyframes floatDown {
+    0% {
+        transform: translateY(0) rotate(0deg) scale(0.8);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(115vh) rotate(360deg) scale(1.2);
+        opacity: 0;
+    }
+}
+
+/* Glassmorphic Aesthetic Card */
+.glass-card {
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    box-shadow: 0 15px 35px rgba(225, 29, 72, 0.1);
+}
+
+/* Glow animation for primary buttons */
+.glow-btn {
+    box-shadow: 0 4px 20px rgba(244, 63, 94, 0.4);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.glow-btn:hover {
+    box-shadow: 0 8px 30px rgba(244, 63, 94, 0.6);
+    transform: translateY(-2px) scale(1.03);
+}
+
+/* Polaroid Photo Frames */
+.polaroid-frame {
+    background: white;
+    padding: 12px 12px 28px 12px;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+}
+.polaroid-frame::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.4) 50%,
+        rgba(255, 255, 255, 0) 100%
+    );
+    transform: skewX(-25deg);
+    transition: all 0.75s ease;
+}
+.polaroid-frame:hover::after {
+    left: 150%;
+}
+.polaroid-frame:hover {
+    transform: scale(1.05) rotate(0deg) !important;
+    box-shadow: 0 20px 35px rgba(244, 63, 94, 0.25);
+    z-index: 20;
+}
+
+/* Pulse heartbeat animation */
+@keyframes pulse-heart {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.18); }
+}
+.pulse-heart {
+    animation: pulse-heart 1.6s infinite ease-in-out;
+}
+
+/* Modal Pop animation */
+.modal-enter {
+    animation: modalPop 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+@keyframes modalPop {
+    0% { transform: scale(0.7); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
