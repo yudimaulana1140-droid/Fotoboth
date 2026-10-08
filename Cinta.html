@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Untuk Kamu yang Spesial ❤️</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Canvas Confetti -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Sacramento&display=swap" rel="stylesheet">
+    <!-- External Custom CSS -->
+    <link rel="stylesheet" href="cinta.css">
+</head>
+<body class="relative flex flex-col items-center justify-between min-h-screen p-4 sm:p-6 select-none">
+
+    <div id="particle-container" class="fixed inset-0 pointer-events-none z-0"></div>
+
+    <!-- Music Player Controls Fixed Widget -->
+    <div class="fixed top-4 right-4 z-50">
+        <button id="music-toggle" onclick="toggleAudio()" class="glass-card flex items-center gap-2 px-4 py-2.5 rounded-full border border-pink-200/80 text-rose-600 font-medium text-xs sm:text-sm hover:scale-105 active:scale-95 transition-all shadow-md">
+            <i id="music-icon" class="fa-solid fa-music animate-bounce text-rose-500"></i>
+            <span id="music-text">Putar Musik 🎵</span>
+        </button>
+    </div>
+
+    <header class="relative z-10 text-center my-6 animate-fade-in">
+        <div class="inline-flex items-center gap-2 bg-white/70 backdrop-blur-md px-4 py-1.5 rounded-full border border-pink-200/80 shadow-sm mb-3">
+            <i class="fa-solid fa-sparkles text-rose-500 text-xs"></i>
+            <span class="text-xs font-semibold tracking-wide text-rose-700 uppercase">Khusus Untukmu yang Tersayang</span>
+        </div>
+        <h1 class="text-4xl sm:text-6xl font-romantic text-rose-600 drop-shadow-sm font-bold">
+            Hai Manisku ❤️
+        </h1>
+    </header>
+
+    <main class="relative z-10 w-full max-w-2xl mx-auto flex flex-col gap-8 my-auto pb-10">
+
+        <!-- 1. Envelope Card (Initial View) -->
+        <div id="envelope-card" class="glass-card rounded-3xl p-8 sm:p-10 text-center transition-all duration-500 transform hover:-translate-y-1">
+            <div class="envelope-icon text-7xl text-rose-500 mb-5 pulse-heart inline-block drop-shadow-md">
+                <i class="fa-solid fa-envelope-open-text"></i>
+            </div>
+            <h2 class="text-2xl sm:text-3xl font-bold text-gray-800 mb-3">Ada Surat Rahasia Buat Kamu</h2>
+            <p class="text-gray-600 text-sm sm:text-base mb-8 max-w-md mx-auto leading-relaxed">
+                Aku udah nyiapin sesuatu yang manis di dalam sini. Coba tekan tombol di bawah buat membuka suratnya ya! 💌
+            </p>
+            <button onclick="openSurat()" class="glow-btn bg-gradient-to-r from-rose-500 via-pink-500 to-rose-400 text-white font-semibold px-8 py-3.5 rounded-full text-base sm:text-lg cursor-pointer flex items-center justify-center gap-2 mx-auto">
+                <i class="fa-solid fa-heart"></i> Buka Surat Cinta
+            </button>
+        </div>
+
+        <!-- 2. Hidden Content Section (Letter, Photo Gallery, Interactive Question) -->
+        <div id="secret-content" class="hidden flex-col gap-8 transition-all duration-700">
+
+            <!-- Romantic Letter Section -->
+            <section class="glass-card rounded-3xl p-6 sm:p-8 relative overflow-hidden">
+                <div class="absolute -top-6 -right-6 text-pink-200/40 text-9xl pointer-events-none font-romantic">
+                    &hearts;
+                </div>
+                <div class="flex items-center gap-3 mb-5 border-b border-rose-100/80 pb-4">
+                    <div class="w-10 h-10 rounded-full bg-rose-100 flex items-center justify-center text-rose-500 text-lg">
+                        <i class="fa-solid fa-heart-pulse"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-bold text-gray-800">Pesan Kecil Dari Hati</h3>
+                        <p class="text-xs text-rose-400">Ditulis dengan penuh rasa sayang</p>
+                    </div>
+                </div>
+                <div class="space-y-4 text-gray-700 leading-relaxed text-sm sm:text-base">
+                    <p>
+                        Makasih ya sudah hadir dan mewarnai hariku. Setiap kali inget kamu, rasanya suasana hatiku selalu jadi jauh lebih tenang dan bahagia.
+                    </p>
+                    <p class="font-handwriting text-2xl sm:text-3xl text-rose-600 font-bold my-2 px-4 py-2 border-l-4 border-rose-400 bg-rose-50/50 rounded-r-xl">
+                        "Terima kasih sudah bertahan, tersenyum, dan berjuang sejauh ini bersamaku."
+                    </p>
+                    <p>
+                        Aku buat halaman web kecil ini khusus buat ngingetin kalau kamu itu sangat berharga dan berarti buat aku. Semoga senyuman manis kamu terukir ya pas baca ini! ✨
+                    </p>
+                </div>
+            </section>
+
+            <section class="glass-card rounded-3xl p-6 sm:p-8">
+                <div class="flex items-center justify-between mb-6">
+                    <div>
+                        <h3 class="text-xl font-bold text-gray-800 flex items-center gap-2">
+                            <i class="fa-solid fa-camera-retro text-rose-500"></i> Galeri Kenangan
+                        </h3>
+                        <p class="text-xs text-gray-500">Momen-momen indah yang tak terlupakan</p>
+                    </div>
+                    <span class="text-xs text-rose-600 font-semibold bg-rose-100/80 px-3 py-1 rounded-full border border-rose-200">
+                        Sorot Foto 📸
+                    </span>
+                </div>
+
+                <!-- Photos Grid -->
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                    
+                    <!-- Frame 1 -->
+                    <div class="polaroid-frame rounded-xl transform -rotate-3 transition duration-300">
+                        <div class="h-48 overflow-hidden rounded-lg mb-3 bg-rose-50">
+                            <img src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&w=600&q=80" 
+                                 alt="Kenangan Manis 1" 
+                                 class="w-full h-full object-cover"
+                                 onerror="this.src='https://placehold.co/400x400/ffe4e6/e11d48?text=Kenangan+Indah'">
+                        </div>
+                        <p class="font-handwriting text-2xl text-center text-gray-700 font-bold">Awal Cerita 🌸</p>
+                    </div>
+
+                    <!-- Frame 2 -->
+                    <div class="polaroid-frame rounded-xl transform rotate-2 transition duration-300">
+                        <div class="h-48 overflow-hidden rounded-lg mb-3 bg-rose-50">
+                            <img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=600&q=80" 
+                                 alt="Kenangan Manis 2" 
+                                 class="w-full h-full object-cover"
+                                 onerror="this.src='https://placehold.co/400x400/ffe4e6/e11d48?text=Senyum+Manis'">
+                        </div>
+                        <p class="font-handwriting text-2xl text-center text-gray-700 font-bold">Senyum Terindah ✨</p>
+                    </div>
+
+                    <!-- Frame 3 -->
+                    <div class="polaroid-frame rounded-xl transform -rotate-2 transition duration-300">
+                        <div class="h-48 overflow-hidden rounded-lg mb-3 bg-rose-50">
+                            <img src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?auto=format&fit=crop&w=600&q=80" 
+                                 alt="Kenangan Manis 3" 
+                                 class="w-full h-full object-cover"
+                                 onerror="this.src='https://placehold.co/400x400/ffe4e6/e11d48?text=Selalu+Bersama'">
+                        </div>
+                        <p class="font-handwriting text-2xl text-center text-gray-700 font-bold">Selalu Bersama ❤️</p>
+                    </div>
+
+                </div>
+            </section>
+
+            <section class="glass-card rounded-3xl p-6 sm:p-10 text-center relative overflow-hidden min-h-[300px] flex flex-col justify-center items-center">
+                <div class="mb-8">
+                    <span class="text-5xl inline-block animate-bounce mb-2">🥺👉👈</span>
+                    <h3 class="text-2xl sm:text-3xl font-extrabold text-gray-800">
+                        Kamu Sayang Banget Gak Sama Aku?
+                    </h3>
+                    <p class="text-gray-500 text-sm mt-1">Jawab yang jujur dari lubuk hati ya!</p>
+                </div>
+
+                <!-- Answer Buttons Container -->
+                <div id="btn-container" class="relative w-full max-w-sm h-28 flex items-center justify-center gap-4">
+                    <!-- Yes Button -->
+                    <button id="yes-btn" onclick="sayYes()" class="glow-btn bg-gradient-to-r from-emerald-500 to-teal-500 text-white font-bold px-8 py-3.5 rounded-full text-base sm:text-lg shadow-lg z-20">
+                        Sayang Banget! 🥰
+                    </button>
+
+                    <!-- Runaway No Button -->
+                    <button id="no-btn" onmouseover="moveButton()" onclick="moveButton()" ontouchstart="moveButton()" class="bg-gray-200/90 text-gray-600 font-semibold px-6 py-3.5 rounded-full text-sm sm:text-base transition-all duration-200 z-10 hover:bg-gray-300 border border-gray-300">
+                        Enggak 😜
+                    </button>
+                </div>
+            </section>
+
+        </div>
+
+        <div id="celebration-modal" class="fixed inset-0 bg-black/40 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+            <div class="glass-card bg-white/90 rounded-3xl p-8 max-w-md w-full text-center shadow-2xl relative border-2 border-rose-300 modal-enter">
+                <div class="text-6xl mb-4 animate-bounce">🎉💖🥳</div>
+                <h3 class="text-2xl sm:text-3xl font-extrabold text-rose-600 mb-3">Yaaaaay! Makasih Sayang! 🥰</h3>
+                <p class="text-gray-700 text-sm sm:text-base mb-6 leading-relaxed">
+                    Aku juga sayang banget banget sama kamu! Makasih ya udah bikin hari ini jadi lebih indah dan berwarna. Tetap sama aku terus ya! 😘
+                </p>
+                <button onclick="closeModal()" class="glow-btn bg-gradient-to-r from-rose-500 to-pink-500 text-white font-bold px-8 py-3 rounded-full text-base transition-all">
+                    Kirim Peluk & Cium 🫂
+                </button>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="relative z-10 text-center my-4 text-xs text-rose-700/80 font-medium">
+        Dibuat dengan <i class="fa-solid fa-heart text-rose-500 animate-pulse"></i> khusus untuk kamu
+    </footer>
+
+    <!-- External Custom JavaScript -->
+    <script src="cintaku.js"></script>
+</body>
+</html>
